@@ -43,13 +43,13 @@ jobs:
     workingDirectory: WebApp
     displayName: 'PS : Add Project GUID'
     enabled: false
-  
-  - task: SonarCloudPrepare@1
-    displayName: 'Prepare analysis on SonarCloud'
+    
+  - task: SonarCloudPrepare@3
     inputs:
-      SonarCloud: SonarCloud
-      organization: jbouzouitadevops
-      projectKey: WebAppWithDatabaseDemo
+      SonarQube: 'sonarCloud'
+      organization: 'jbouzouitadevops'
+      scannerMode: 'dotnet'
+      projectKey: 'WebAppWithDatabaseDemo'
   
   - task: DotNetCoreCLI@2
     displayName: Build
