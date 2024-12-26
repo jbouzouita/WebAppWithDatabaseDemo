@@ -72,16 +72,7 @@ jobs:
       arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
       zipAfterPublish: True
   
-  - task: SonarCloudAnalyze@3
-    displayName: 'Run Code Analysis'
 
-  - task: SonarCloudPublish@3
-    displayName: 'Publish Quality Gate Result'
-  
-  - task: PublishBuildArtifacts@1
-    displayName: 'Publish Artifact (WebApp.zip)'
-    inputs:
-      PathtoPublish: '$(build.artifactstagingdirectory)'
 
 - job: Database
   displayName: 'Build Database'
