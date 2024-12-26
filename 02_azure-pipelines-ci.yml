@@ -44,6 +44,12 @@ jobs:
     displayName: 'PS : Add Project GUID'
     enabled: false
   
+  - task: SonarCloudPrepare@3
+    inputs:
+      SonarQube: 'sonarConnection'
+      organization: 'jbouzouitadevops'
+      scannerMode: 'dotnet'
+      projectKey: 'WebAppWithDatabaseDemo'
   - task: PublishBuildArtifacts@1
     displayName: 'Publish Artifact (WebApp.zip)'
     inputs:
