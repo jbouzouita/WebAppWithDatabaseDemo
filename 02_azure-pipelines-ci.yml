@@ -44,14 +44,13 @@ jobs:
     displayName: 'PS : Add Project GUID'
     enabled: false
     
-    
-  - task: SonarCloudPrepare@1
+  - task: SonarCloudPrepare@3
     inputs:
-      SonarCloud: 'sonarCloud'
+      SonarQube: 'sonarConnection'
       organization: 'jbouzouitadevops'
+      scannerMode: 'dotnet'
       projectKey: 'WebAppWithDatabaseDemo'
       projectName: 'webappwithdatabase'
-      projectVersion: '1.0'
   
   - task: DotNetCoreCLI@2
     displayName: Build
@@ -74,10 +73,10 @@ jobs:
       arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
       zipAfterPublish: True
   
-  - task: SonarCloudAnalyze@1
+  - task: SonarCloudAnalyze@3
     displayName: 'Run Code Analysis'
-  
-  - task: SonarCloudPublish@1
+
+  - task: SonarCloudPublish@3
     displayName: 'Publish Quality Gate Result'
   
   - task: PublishBuildArtifacts@1
