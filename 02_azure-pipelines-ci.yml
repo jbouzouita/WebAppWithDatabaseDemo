@@ -48,7 +48,6 @@ jobs:
     inputs:
       SonarQube: 'sonarConnection'
       organization: 'jbouzouitadevops'
-      scannerMode: 'dotnet'
       projectKey: 'WebAppWithDatabaseDemo'
       projectName: 'webappwithdatabase'
   
