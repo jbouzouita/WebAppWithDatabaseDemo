@@ -8,7 +8,7 @@ jobs:
 - job: WebApp
   displayName: 'Build Web App'
   pool:
-    vmImage: 'windows-2019'
+    vmImage: 'windows-latest'
   variables:
     BuildConfiguration: release
   
@@ -86,7 +86,7 @@ jobs:
 - job: Database
   displayName: 'Build Database'
   pool:
-    vmImage: 'windows-2019'
+    vmImage: 'windows-latest'
 
   steps:
   - task: MSBuild@1
