@@ -76,7 +76,8 @@ jobs:
       arguments: '--configuration $(BuildConfiguration) --output $(build.artifactstagingdirectory)'
       zipAfterPublish: True
   
-  - task: SonarCloudAnalyze@1
+
+  - task: SonarCloudAnalyze@2
     displayName: 'Run Code Analysis'
   
   - task: SonarCloudPublish@1
@@ -90,7 +91,7 @@ jobs:
 - job: Database
   displayName: 'Build Database'
   pool:
-    vmImage: 'windows-2019'
+    vmImage: 'windows-latest'
 
   steps:
   - task: MSBuild@1
@@ -107,7 +108,7 @@ jobs:
 - job: Selenium
   displayName: 'Build UI Tests'
   pool:
-    vmImage: 'windows-2019'
+    vmImage: 'windows-latest'
 
   steps:
   - task: NuGetToolInstaller@0
